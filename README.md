@@ -8,6 +8,19 @@ Leia arquivo [readme](https://github.com/CDTN-CNEM/Driver-ax99100/blob/Original/
 
 Alterne a branch entre a versão do driver [original](https://github.com/CDTN-CNEM/Driver-ax99100/tree/Original) e versões modificadas para as distribuições [ArchLinux](https://github.com/CDTN-CNEM/Driver-ax99100/tree/ArchLinux) ou [Debian 12](https://github.com/CDTN-CNEM/Driver-ax99100/tree/Debian-12) com [DKMS](https://pt.wikipedia.org/wiki/Dynamic_Kernel_Module_Support).
 
+### Resumo modificações
+
+Todas as modificações podem ser vistas [neste commit](https://github.com/CDTN-CNEM/Driver-Asix-ax99100/commit/b20d02f34283465309f6db3a5a11cccc0861c1f8).
+
+Configurações para Systematom:
+- ```#define FUNC_SELECT 0 // 0: Serial Port only```
+- ```.uart_mode = AX99100_RS485_HALF_DUPLEX```
+- ```#define DEFAULT99100_BAUD 57600```
+
+Voltado para ArchLinux:
+- Makefile exclusivo para arquitetura x86-64, kernel linux ```= 6.x.x``` e DKMS.
+- ```DEFINE_SEMAPHORE(serial99100_sem, 1);``` (não funciona no Debian-12, Kernel 6.1.x)
+
 ## Aplicação
 
 Este driver é necessário para a placa [KNUP KP-T89](https://novaknup.com.br/produto/placa-pci-e-serial-2-portas-t89) instalada no servidor realizar a comunicação serial via interface RS-485 com o bastidor eletrônico da empresa [Sniip-Systematom (сниип-Систематом)](http://www.systematom.ru) instalada no reator nuclear [Triga IPR-R1](https://www.gov.br/cdtn/pt-br/assuntos/noticias/por-dentro-do-reator-triga).
