@@ -16,10 +16,14 @@ Configurações para Systematom:
 - ```#define FUNC_SELECT 0 // 0: Serial Port only```
 - ```.uart_mode = AX99100_RS485_HALF_DUPLEX```
 - ```#define DEFAULT99100_BAUD 57600```
+- 2 portas seriais apenas (deletadas portas 2 e 3).
 
 Voltado para ArchLinux:
 - Makefile exclusivo para arquitetura x86-64, kernel linux ```= 6.x.x``` e DKMS.
 - ```DEFINE_SEMAPHORE(serial99100_sem, 1);``` (não funciona no Debian-12, Kernel 6.1.x)
+
+Outros:
+- Logs ativados.
 
 ## Aplicação
 
