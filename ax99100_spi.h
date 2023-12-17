@@ -102,7 +102,7 @@
 #define _INLINE_
 #endif
 
-#define DEFAULT99100_BAUD 115200
+#define DEFAULT99100_BAUD 57600
 
 /* Device */
 #define	DEV_NAME	"ax99100"

@@ -18,7 +18,7 @@
 #define DRV_VERSION	"1.9.0"
 
 
-#define FUNC_SELECT 1	// 0: Serial Port only
+#define FUNC_SELECT 0	// 0: Serial Port only
 			// 1: Serial Port+SPI
 #define INT_TYPE 0	// 0: using legacy interrupt	
 			// 1: using msi interrupt
@@ -266,5 +266,5 @@ struct custom_eeprom {
 #define _INLINE_
 #endif
 
-#define DEFAULT99100_BAUD 115200
+#define DEFAULT99100_BAUD 57600
 #endif

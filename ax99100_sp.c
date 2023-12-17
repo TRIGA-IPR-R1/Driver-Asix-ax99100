@@ -75,31 +75,31 @@ KERN_INFO "ASIX AX99100 PCIe Bridg to Serial Port:v" DRV_VERSION
 #define FL_BASE5			0x0005
 #define FL_GET_BASE(x)			(x & FL_BASE_MASK)
 
-#if 0
+#if 1
 #define DEBUG(fmt...)	printk(KERN_ERR fmt)
 #else
 #define DEBUG(fmt...)	do { } while (0)
 #endif
 
-#if 0
+#if 1
 #define MP_DBG(fmt...)	printk(KERN_ERR fmt)
 #else
 #define MP_DBG(fmt...)	do { } while (0)
 #endif
 
-#if 0
+#if 1
 #define TR_DBG(fmt...)	printk(KERN_ERR fmt)
 #else
 #define TR_DBG(fmt...)	do { } while (0)
 #endif
 
-#if 0
+#if 1
 #define BR_DBG(fmt...)	printk(KERN_ERR fmt)
 #else
 #define BR_DBG(fmt...)	do { } while (0)
 #endif
 
-#if 0
+#if 1
 #define INIT_DBG(fmt...)	printk(KERN_ERR fmt)
 #else
 #define INIT_DBG(fmt...)	do { } while (0)
@@ -291,7 +291,7 @@ static struct uart_99100_contxt uart_99100_contxts[] = {
 	{
 		.rx_dma_en	= 0,
  		.tx_dma_en	= 0,
-		.uart_mode	= AX99100_RS232_MODE,
+		.uart_mode	= AX99100_RS485_HALF_DUPLEX,
 		.en_flow_control= 0,
 		.flow_ctrl_type = AX99100_RTS_CTS_HW_FLOWCONTROL,
 		.rxfifotrigger	= 1,
@@ -312,7 +312,7 @@ static struct uart_99100_contxt uart_99100_contxts[] = {
 	{
 		.rx_dma_en	= 0,
 		.tx_dma_en	= 0,
-		.uart_mode	= AX99100_RS232_MODE,
+		.uart_mode	= AX99100_RS485_HALF_DUPLEX,
 		.en_flow_control= 0,
 		.flow_ctrl_type = AX99100_RTS_CTS_HW_FLOWCONTROL,
 		.rxfifotrigger  = 1,
@@ -328,48 +328,6 @@ static struct uart_99100_contxt uart_99100_contxts[] = {
 		.pci_config_l1 	= 0,
 		.mode_9bit	= MODE_9BIT_DISABLE,
 		.nodeID_9bit	= 0,		
-	},
-	//Port 2
-	{
-		.rx_dma_en	= 0,
-		.tx_dma_en	= 0,
-		.uart_mode	= AX99100_RS232_MODE,
-		.en_flow_control= 0,
-		.flow_ctrl_type = AX99100_RTS_CTS_HW_FLOWCONTROL,
-		.rxfifotrigger	= 1,
-		.txfifotrigger	= 1,		
-		.x_on		= SERIAL_DEF_XON,
-		.x_off		= SERIAL_DEF_XOFF,
-
-		.ltc2872_te485 	= 0,
-		.ltc2872_dz 	= 0,
-		.ltc2872_lb 	= 0,
-		.ltc2872_fen 	= 0,
-		.pci_config_l0s	= 0,
-		.pci_config_l1 	= 0,
-		.mode_9bit	= MODE_9BIT_DISABLE,
-		.nodeID_9bit	= 0,
-	},
-	//Port 3
-	{
-		.rx_dma_en	= 0,
-		.tx_dma_en	= 0,
-		.uart_mode	= AX99100_RS232_MODE,
-		.en_flow_control= 0,
-		.flow_ctrl_type = AX99100_RTS_CTS_HW_FLOWCONTROL,
-		.rxfifotrigger	= 1,
-		.txfifotrigger	= 1,		
-		.x_on		= SERIAL_DEF_XON,
-		.x_off		= SERIAL_DEF_XOFF,
-
-		.ltc2872_te485 	= 0,
-		.ltc2872_dz 	= 0,
-		.ltc2872_lb 	= 0,
-		.ltc2872_fen 	= 0,
-		.pci_config_l0s	= 0,
-		.pci_config_l1 	= 0,
-		.mode_9bit	= MODE_9BIT_DISABLE,
-		.nodeID_9bit	= 0,
 	},
 };
 
@@ -2694,7 +2652,7 @@ static void serial99100_dma_tx_tasklet (unsigned long param)
 #if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,37)
 static DECLARE_MUTEX(serial99100_sem);
 #else
-static DEFINE_SEMAPHORE(serial99100_sem);
+static DEFINE_SEMAPHORE(serial99100_sem, 1);
 #endif
 
 static struct uart_driver starex_serial_driver = {

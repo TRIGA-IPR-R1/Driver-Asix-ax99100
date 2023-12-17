@@ -10,7 +10,7 @@
 
 #include "ioctl.h"
 
-#define TOOL_VERSION "AX99100 Serial Port 9-bit Mode Test Tool: v1.0.0"
+#define TOOL_VERSION "AX99100 Serial Port 9-bit Mode Test Tool: v1.9.0"
 
 int devfd;
 
