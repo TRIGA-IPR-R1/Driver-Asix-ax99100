@@ -291,7 +291,7 @@ static struct uart_99100_contxt uart_99100_contxts[] = {
 	{
 		.rx_dma_en	= 0,
  		.tx_dma_en	= 0,
-		.uart_mode	= AX99100_RS232_MODE,
+		.uart_mode	= AX99100_RS485_HALF_DUPLEX,
 		.en_flow_control= 0,
 		.flow_ctrl_type = AX99100_RTS_CTS_HW_FLOWCONTROL,
 		.rxfifotrigger	= 1,
@@ -312,7 +312,7 @@ static struct uart_99100_contxt uart_99100_contxts[] = {
 	{
 		.rx_dma_en	= 0,
 		.tx_dma_en	= 0,
-		.uart_mode	= AX99100_RS232_MODE,
+		.uart_mode	= AX99100_RS485_HALF_DUPLEX,
 		.en_flow_control= 0,
 		.flow_ctrl_type = AX99100_RTS_CTS_HW_FLOWCONTROL,
 		.rxfifotrigger  = 1,
@@ -329,7 +329,7 @@ static struct uart_99100_contxt uart_99100_contxts[] = {
 		.mode_9bit	= MODE_9BIT_DISABLE,
 		.nodeID_9bit	= 0,		
 	},
-	//Port 2
+	/*//Port 2
 	{
 		.rx_dma_en	= 0,
 		.tx_dma_en	= 0,
@@ -370,7 +370,7 @@ static struct uart_99100_contxt uart_99100_contxts[] = {
 		.pci_config_l1 	= 0,
 		.mode_9bit	= MODE_9BIT_DISABLE,
 		.nodeID_9bit	= 0,
-	},
+	},*/
 };
 
 /*

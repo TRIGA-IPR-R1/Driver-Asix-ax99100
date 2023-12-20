@@ -76,11 +76,11 @@ int spi_suspend_count;
 static unsigned int spi_major = 241;
 static unsigned int spi_min_count = 0;
 /* device Class */
-#if LINUX_VERSION_CODE < KERNEL_VERSION(5,19,0)
+//#if LINUX_VERSION_CODE < KERNEL_VERSION(5,19,0)
 static char *ax_devnode(struct device *dev, umode_t *mode)
-#else 
-static char *ax_devnode(const struct device *dev, umode_t *mode)
-#endif
+//#else 
+//static char *ax_devnode(const struct device *dev, umode_t *mode)
+//#endif
 {
 	return kasprintf(GFP_KERNEL, "%s", dev_name(dev));
 }
