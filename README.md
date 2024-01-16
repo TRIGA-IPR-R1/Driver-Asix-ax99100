@@ -1,43 +1,43 @@
-# Driver Asix ax99100
+# Asix AX99100 Driver
 
-Versão 1.9.0 do código fonte do driver para o chip [Asix ax99100](https://www.asix.com.tw/en/product/Interface/PCIe_Bridge/AX99100) para o [sistema operacional GNU](https://www.gnu.org) com kernel [Linux](https://www.linux.org).
+Version 1.9.0 of the source code for the driver for the [Asix AX99100](https://www.asix.com.tw/en/product/Interface/PCIe_Bridge/AX99100) chip for the [GNU operating system](https://www.gnu.org) with the [Linux kernel](https://www.linux.org).
 
-Leia arquivo [readme](https://github.com/CDTN-CNEM/Driver-ax99100/blob/Original/readme) para instruções originais.
+Read the [readme](https://github.com/CDTN-CNEM/Driver-ax99100/blob/Original/readme) file for original instructions.
 
 ## Branches
 
-Alterne a branch entre a versão do driver [original](https://github.com/CDTN-CNEM/Driver-ax99100/tree/Original) e versões modificadas para as distribuições [ArchLinux](https://github.com/CDTN-CNEM/Driver-ax99100/tree/ArchLinux) ou [Debian 12](https://github.com/CDTN-CNEM/Driver-ax99100/tree/Debian-12) com [DKMS](https://pt.wikipedia.org/wiki/Dynamic_Kernel_Module_Support).
+Switch the branch between the [original](https://github.com/CDTN-CNEM/Driver-ax99100/tree/Original) driver version and modified versions for the [ArchLinux](https://github.com/CDTN-CNEM/Driver-ax99100/tree/ArchLinux) or [Debian 12](https://github.com/CDTN-CNEM/Driver-ax99100/tree/Debian-12) distributions with [DKMS](https://en.wikipedia.org/wiki/Dynamic_Kernel_Module_Support).
 
-## Aplicação
+## Application
 
-Este driver é necessário para a placa [KNUP KP-T89](https://novaknup.com.br/produto/placa-pci-e-serial-2-portas-t89) instalada no servidor realizar a comunicação serial via interface RS-485 com o bastidor eletrônico da empresa [Sniip-Systematom (сниип-Систематом)](http://www.systematom.ru) instalada no reator nuclear [Triga IPR-R1](https://www.gov.br/cdtn/pt-br/assuntos/noticias/por-dentro-do-reator-triga).
+This driver is necessary for the [KNUP KP-T89](https://novaknup.com.br/produto/placa-pci-e-serial-2-portas-t89) board installed on the server to perform serial communication via RS-485 interface with the electronic chassis of the [Sniip-Systematom (сниип-Систематом)](http://www.systematom.ru) company installed in the [Triga IPR-R1](https://www.gov.br/cdtn/pt-br/assuntos/noticias/por-dentro-do-reator-triga) nuclear reactor.
 
-## Instalação
+## Installation
 
-Para compilar e instalar o driver basta rodar no terminal:
+To compile and install the driver, simply run the following command in the terminal:
 
-```Bash
+```bash
 sudo make install
 ```
 
-## Uso e verificação
+## Usage and Verification
 
-Para verificar se foi corretamente instalado e se está funcional:
+To check if it has been correctly installed and is functional:
 
-```Bash
+```bash
 ls /dev/ttyF*
 ```
 
-A saída deverá ser:
+The output should be:
 ```
 /dev/ttyF0
 /dev/ttyF1
 ```
 
-É possível se comunicar através de uso de softwares como [minicom](https://salsa.debian.org/minicom-team/minicom), mas partindo do pressuposto que a placa KP-T89 está conectada no bastidor Systematom, o mesmo só responde ao protocolo [ModBus](https://pt.wikipedia.org/wiki/Modbus). 
+It is possible to communicate using software such as [minicom](https://salsa.debian.org/minicom-team/minicom), but assuming that the KP-T89 board is connected to the Systematom chassis, it only responds to the [ModBus](https://en.wikipedia.org/wiki/Modbus) protocol.
 
-Uma alternativa viável então é rodar o test da biblioteca [libModbusSystematomSPU](https://github.com/CDTN-CNEM/libModbusSystematomSPU).
+An alternative is to run the test from the [libModbusSystematomSPU](https://github.com/CDTN-CNEM/libModbusSystematomSPU) library.
 
-## Licença
+## License
 
-Este driver foi lançado pela empresa Asix com licença [GPL2+](https://github.com/CDTN-CNEM/Driver-ax99100/blob/Original/LICENSE).
+This driver was released by the Asix company under the [GPL2+](https://github.com/CDTN-CNEM/Driver-ax99100/blob/Original/LICENSE) license.
